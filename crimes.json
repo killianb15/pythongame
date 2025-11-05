@@ -1,0 +1,44 @@
+{
+  "crimes": [
+    {
+      "id": 1,
+      "nom": "Meurtre au bureau",
+      "victime": "Monsieur Dubois, PDG",
+      "arme": "Coupe-papier en argent",
+      "cause_mort": "Poignardé dans le dos",
+      "heure": "22h30",
+      "lieu": "Bureau du 5ème étage",
+      "indices": "Fenêtre ouverte, ordinateur allumé, café renversé"
+    },
+    {
+      "id": 2,
+      "nom": "Empoisonnement au gala",
+      "victime": "Madame Laurent, philanthrope",
+      "arme": "Cyanure dans le champagne",
+      "cause_mort": "Empoisonnement",
+      "heure": "21h15",
+      "lieu": "Salle de réception",
+      "indices": "Verre brisé, traces de poudre blanche, invitation déchirée"
+    },
+    {
+      "id": 3,
+      "nom": "Accident suspect",
+      "victime": "Docteur Moreau, chercheur",
+      "arme": "Chute dans les escaliers (poussé)",
+      "cause_mort": "Traumatisme crânien",
+      "heure": "18h45",
+      "lieu": "Escalier du laboratoire",
+      "indices": "Marque de chaussure sur le palier, dossier volé, caméra désactivée"
+    },
+    {
+      "id": 4,
+      "nom": "Noyade mystérieuse",
+      "victime": "Monsieur Petit, banquier",
+      "arme": "Noyade forcée dans la piscine",
+      "cause_mort": "Asphyxie par noyade",
+      "heure": "23h00",
+      "lieu": "Piscine privée",
+      "indices": "Serviette mouillée, téléphone éteint au bord de l'eau, traces de lutte"
+    }
+  ]
+}

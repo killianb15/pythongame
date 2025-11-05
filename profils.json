@@ -1,0 +1,40 @@
+{
+  "personnes": [
+    {
+      "id": 1,
+      "prenom": "Marie",
+      "metier": "Médecin urgentiste",
+      "temperament": "calme et réfléchie, mais cache un stress constant. Parle de manière posée et choisit ses mots avec soin. A tendance à analyser les gens comme des patients"
+    },
+    {
+      "id": 2,
+      "prenom": "Thomas",
+      "metier": "Avocat d'affaires",
+      "temperament": "nerveux et méfiant, toujours sur la défensive. Répond souvent par des questions et évite les réponses directes. Très soucieux de sa réputation"
+    },
+    {
+      "id": 3,
+      "prenom": "Sophie",
+      "metier": "Journaliste d'investigation",
+      "temperament": "curieuse et bavarde, adore les détails croustillants. Pose beaucoup de questions et partage volontiers des ragots. Parfois trop franche"
+    },
+    {
+      "id": 4,
+      "prenom": "Lucas",
+      "metier": "Ingénieur informatique",
+      "temperament": "introverti et précis, mal à l'aise avec les émotions. Donne des réponses courtes et factuelles. Se perd dans les détails techniques quand il est nerveux"
+    },
+    {
+      "id": 5,
+      "prenom": "Élise",
+      "metier": "Professeure de littérature",
+      "temperament": "douce mais mélancolique, s'exprime avec élégance. A tendance à faire des références littéraires. Cache une tristesse profonde"
+    },
+    {
+      "id": 6,
+      "prenom": "Vincent",
+      "metier": "Chef d'entreprise",
+      "temperament": "autoritaire et impatient, habitué à ce qu'on lui obéisse. Répond brièvement et avec condescendance. Déteste perdre son temps"
+    }
+  ]
+}
