@@ -127,4 +127,4 @@ Vous pouvez enrichir ces fichiers pour créer de nouvelles enquêtes et varier l
 
 
 ## Licence
-Projet à usage éducatif/démo. Adaptez la licence selon vos besoins.
+Projet à usage éducatif/démo.
