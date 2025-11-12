@@ -19,7 +19,8 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Enquête interactive - Interface graphique")
-        self.geometry("980x640")
+        # Augmente la taille de la fenêtre pour permettre une colonne gauche large
+        self.geometry("1600x850")
 
         # Thème police/enquête
         self.theme = {
@@ -90,13 +91,15 @@ class App(tk.Tk):
         body.pack(expand=True, fill=tk.BOTH, padx=10, pady=10)
 
         # Colonne gauche: suspects
-        left = tk.Frame(body, width=260, bg=t['panel'])
+        left = tk.Frame(body, width=250, bg=t['panel'])
         left.pack(side=tk.LEFT, fill=tk.Y)
+        # Empêche Tkinter de réduire la largeur du cadre à la taille de son contenu
+        left.pack_propagate(False)
 
         tk.Label(left, text="Suspects", font=("Segoe UI", 12, "bold"), bg=t['panel'], fg=t['accent']).pack(anchor="w", padx=10, pady=(10, 4))
 
         self.listbox = tk.Listbox(left, height=20, bg=t['panel_alt'], fg=t['text'], selectbackground=t['accent'], selectforeground='#000000', bd=0, highlightthickness=0)
-        self.listbox.pack(fill=tk.Y, expand=True, padx=10, pady=(0, 8))
+        self.listbox.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 8))
         self.listbox.bind("<<ListboxSelect>>", self._on_select_suspect)
 
         self.btn_accuser = tk.Button(left, text="Accuser le suspect sélectionné", command=self.accuser_selection,
@@ -300,10 +303,29 @@ class App(tk.Tk):
         self._redraw_chat()
 
     def _append_chat(self, speaker, text):
-        # Ajoute un message et redessine
+        # Ajoute un message et redessine (sans animation)
         self.chat_draw_messages.append((speaker, text))
         self._redraw_chat()
         self._scroll_to_bottom()
+
+    def _append_chat_typewriter(self, speaker, text, delay_ms=30):
+        # Ajoute un message qui s'affiche caractère par caractère toutes les 0.03s
+        # Insère d'abord une entrée vide, puis remplace progressivement
+        start_index = len(self.chat_draw_messages)
+        self.chat_draw_messages.append((speaker, ""))
+        self._redraw_chat()
+        self._scroll_to_bottom()
+
+        def step(i=0):
+            if i > len(text):
+                return
+            # Remplacer le tuple à l'index par la portion courante
+            self.chat_draw_messages[start_index] = (speaker, text[:i])
+            self._redraw_chat()
+            self._scroll_to_bottom()
+            if i < len(text):
+                self.after(delay_ms, lambda: step(i + 1))
+        step(0)
 
     def envoyer_message(self):
         if self.current_index is None:
@@ -317,7 +339,7 @@ class App(tk.Tk):
         idx = self.current_index
         conv = self.conversations[idx]
         conv.append({'role': 'user', 'content': content})
-        self._append_chat("Vous", content)
+        self._append_chat_typewriter("Vous", content, delay_ms=30)
 
         # Appel Ollama en thread pour ne pas bloquer l'UI
         if chat is None:
@@ -333,7 +355,7 @@ class App(tk.Tk):
                     ai_text = getattr(response, 'message', None).content if hasattr(response, 'message') else response['message']['content']
                     conv.append({'role': 'assistant', 'content': ai_text})
 
-                    self.after(0, lambda: self._append_chat(self.personnes_enquete[idx]['prenom'], ai_text))
+                    self.after(0, lambda: self._append_chat_typewriter(self.personnes_enquete[idx]['prenom'], ai_text, delay_ms=30))
                 except Exception as e:
                     self.after(0, lambda: self._append_chat(self.personnes_enquete[idx]['prenom'], f"[Erreur] {e}"))
 
