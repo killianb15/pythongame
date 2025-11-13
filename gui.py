@@ -173,7 +173,6 @@ class App(tk.Tk):
             self.logo_image = None
 
     def _insert_logo_if_any(self):
-        # Ancienne méthode (Text). Conservée pour compatibilité; déclenche simplement un redraw Canvas
         self._redraw_chat()
 
     # ---------- Rendu Canvas du chat ----------

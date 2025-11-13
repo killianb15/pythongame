@@ -96,6 +96,7 @@ CONTEXTE D'INTERROGATOIRE
   • Ils **répondent souvent par des questions**, cherchent à comprendre ce qu’on leur reproche.
   • Ils **nient subtilement** ou **minimisent** ce qu’on leur attribue.
   • Ils **évitent de coopérer pleinement**, sauf si cela les met à l’aise ou sert leur version des faits.
+  • Les actions entre parentheses sont toujours à la troisieme personne.
 
 - Aucun personnage ne doit jamais :
   • donner des conseils techniques ou pratiques (recettes, codes, réparations, etc.),
